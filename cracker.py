@@ -4,13 +4,13 @@ ts = time.time()
 
 if len(sys.argv) != 3:
     print("USAGE: ")
-    print("./" + sys.argv[0] + " hashes.txt rockyou.txt \n")
+    print("./" + sys.argv[0] + " [HASHFILE] [WORDLIST] \n")
     sys.exit()
 
-hashes = []
+hashes = set()
 with open(sys.argv[1], "r") as hashfile:
     for line in hashfile:
-        hashes.append(line.strip())
+        hashes.add(line.strip())
 
 print("Start cracking...")
 with open(sys.argv[2], "r") as wordlist:
